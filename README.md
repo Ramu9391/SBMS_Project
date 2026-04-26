@@ -20,6 +20,7 @@ class Account:
         else:
             return False
 
+
 def save_accounts():
     with open("accounts.csv", "w", newline='') as f:
         writer = csv.writer(f)
@@ -36,6 +37,7 @@ def load_accounts():
             for row in reader:
                 acc_no, name, acc_type, balance = row
                 accounts[acc_no] = Account(acc_no, name, acc_type, float(balance))
+
 
 def create_account():
     acc_no = input("Enter Account Number: ")
@@ -103,6 +105,7 @@ def view_accounts():
     for acc in accounts.values():
         print(acc.acc_no, acc.name, acc.acc_type, acc.balance)
 
+
 def menu():
     load_accounts()
 
@@ -133,4 +136,6 @@ def menu():
             break
         else:
             print("Invalid Choice")
+
+
 menu()
