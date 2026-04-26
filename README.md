@@ -3,7 +3,6 @@ import os
 
 accounts = {}
 
-# ================= ACCOUNT CLASS =================
 class Account:
     def __init__(self, acc_no, name, acc_type, balance):
         self.acc_no = acc_no
@@ -21,8 +20,6 @@ class Account:
         else:
             return False
 
-
-# ================= FILE HANDLING =================
 def save_accounts():
     with open("accounts.csv", "w", newline='') as f:
         writer = csv.writer(f)
@@ -40,8 +37,6 @@ def load_accounts():
                 acc_no, name, acc_type, balance = row
                 accounts[acc_no] = Account(acc_no, name, acc_type, float(balance))
 
-
-# ================= OPERATIONS =================
 def create_account():
     acc_no = input("Enter Account Number: ")
     if acc_no in accounts:
@@ -108,8 +103,6 @@ def view_accounts():
     for acc in accounts.values():
         print(acc.acc_no, acc.name, acc.acc_type, acc.balance)
 
-
-# ================= MAIN MENU =================
 def menu():
     load_accounts()
 
@@ -140,7 +133,4 @@ def menu():
             break
         else:
             print("Invalid Choice")
-
-
-# ================= RUN =================
 menu()
